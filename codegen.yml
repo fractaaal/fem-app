@@ -1,0 +1,13 @@
+overwrite: true
+
+schema:
+  - https://intense-monster-87.hasura.app/v1/graphql:
+      headers:
+        'x-hasura-admin-secret': ${NEXT_PUBLIC_HASURA_ADMIN_SECRET}
+documents: 'queries/**/*.ts'
+generates:
+  types/generated/graphql.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
